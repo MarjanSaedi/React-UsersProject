@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import LoadingUsers from './loading/loadingUsers';
+import { Link } from 'react-router-dom';
 
 class Users extends Component {
     state = { 
@@ -30,7 +31,9 @@ class Users extends Component {
                             return(
                                 <div className='col-4 text-center p-5'>
                                     <img src={user.avatar} style={{borderRadius:'50%', width:'100px'}} alt=""/>
-                                    <h4>{user.first_name} {user.last_name}</h4>
+                                    <Link to={`/users/${user.id}`}>
+                                        <h4>{user.first_name} {user.last_name}</h4>
+                                    </Link>
                                     <h5>{user.email}</h5>
                                     <div className='row'>
                                         <button onClick={()=>{this.handleUpdate(user)}} className='btn btn-info btn-sm'>Update</button>
