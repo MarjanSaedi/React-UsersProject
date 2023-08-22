@@ -11,7 +11,7 @@ const User = (props) => {
         const response = await axios.get(`https://reqres.in/api/users/${id}`);
         setUser(response.data.data);}
         getData();
-    });
+    },[]);
     return ( 
         <>
         <img src={user.avatar} style={{borderRadius:'50%', width:'100px'}} alt=""/>
