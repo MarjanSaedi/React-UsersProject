@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 
 const User = (props) => {
     const [user, setUser]=useState({});
     const { id } = useParams();
+    const navigate = useNavigate ();
 
     useEffect( () => {
         async function getData(){
@@ -17,6 +18,7 @@ const User = (props) => {
         <img src={user.avatar} style={{borderRadius:'50%', width:'100px'}} alt=""/>
         <h4>{user.first_name} {user.last_name}</h4>
         <h5>{user.email}</h5>
+        <button onClick={()=>{navigate('/users')}} className="btn btn-info mt-3">users</button>
         </>
      );
 }

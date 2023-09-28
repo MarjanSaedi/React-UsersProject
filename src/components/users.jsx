@@ -14,7 +14,7 @@ class Users extends Component {
         setTimeout (
             ()=>{
                 this.setState({users: response.data.data, isLoading: false});
-            }, 1000)
+            }, 1)
     }
 
     render() { 
